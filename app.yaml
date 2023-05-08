@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: web
+  name: webs
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/vorttex17/udemy-argo-course.git
-    targetRevision: HEAD
-    path: manifests/
+    targetRevision: master
+    path: manifests
   destination:
     server: https://kubernetes.default.svc
-    namespace: web
+    namespace: default
   syncPolicy:
     automated:
       selfHeal: true
